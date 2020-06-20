@@ -53,5 +53,20 @@ android {
 }
 
 dependencies {
+    //TODO sort all of these
+    implementation "androidx.appcompat:appcompat:$appCompatVersion"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+    implementation "com.jakewharton.timber:timber:$timberVersion"
+    implementation "androidx.room:room-runtime:$roomVersion"
 
+    //test - Local unit tests
+    testImplementation "androidx.test.ext:junit:$androidXTestExtKotlinRunnerVersion"
+    testImplementation "androidx.test:core-ktx:$androidXTestCoreVersion"
+    testImplementation "junit:junit:$junitVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+
+    //androidTest - Instrumented testing
+    androidTestImplementation "junit:junit:$junitVersion"
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
 }

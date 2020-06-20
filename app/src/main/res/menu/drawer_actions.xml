@@ -14,10 +14,14 @@
   ~ limitations under the License.
   -->
 
-<resources>
-    <color name="colorPrimary">#FFA000</color>
-    <color name="colorPrimaryDark">#C43E00</color>
-    <color name="colorAccent">#FFA000</color>
-    <color name="colorTextPrimary">#000000</color>
-    <color name="colorGrey">#757575</color>
-</resources>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@id/cat_list_fragment_dest"
+        android:icon="@drawable/ic_list"
+        android:title="@string/menu_cats_list" />
+    <item
+        android:id="@id/about_fragment_dest"
+        android:icon="@drawable/ic_statistics"
+        android:title="@string/menu_about" />
+</menu>

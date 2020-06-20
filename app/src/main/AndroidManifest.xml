@@ -28,7 +28,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="CatsActivity"
+            android:name=".cats.CatsActivity"
             android:theme="@style/AppTheme.OverlapSystemBar"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
