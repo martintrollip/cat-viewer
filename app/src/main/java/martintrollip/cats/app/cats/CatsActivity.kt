@@ -32,13 +32,11 @@ class CatsActivity : AppCompatActivity() {
                         .setOpenableLayout(drawerLayout)
                         .build()
         setupActionBarWithNavController(navController, appBarConfiguration)
-        findViewById<NavigationView>(R.id.nav_view)
-                .setupWithNavController(navController)
+        findViewById<NavigationView>(R.id.nav_view).setupWithNavController(navController)
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        return findNavController(R.id.nav_host_fragment).navigateUp(appBarConfiguration)
-                || super.onSupportNavigateUp()
+        return findNavController(R.id.nav_host_fragment).navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
     private fun setupNavigationDrawer() {

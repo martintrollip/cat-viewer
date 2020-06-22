@@ -20,6 +20,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="martintrollip.cats.app">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".CatsApplication"
         android:allowBackup="false"

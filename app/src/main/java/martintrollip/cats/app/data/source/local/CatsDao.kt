@@ -24,6 +24,14 @@ interface CatsDao {
     fun observeCats(): LiveData<List<Cat>>
 
     /**
+     * Observes a cat.
+     *
+     * @return all cats.
+     */
+    @Query("SELECT * FROM Cats WHERE catId = :catId")
+    fun observeCat(catId: String): LiveData<Cat>
+
+    /**
      * Select all cats from the cats table.
      *
      * @return all cats.
@@ -38,7 +46,7 @@ interface CatsDao {
      * @return the cat with catId.
      */
     @Query("SELECT * FROM Cats WHERE catId = :catId")
-    suspend fun getCatById(catId: String): Cat?
+    suspend fun getCat(catId: String): Cat?
 
     /**
      * Insert a cat in the database. If the cat already exists, replace it.
@@ -48,4 +56,11 @@ interface CatsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCat(cat: Cat)
 
+    /**
+     * Delete all tasks.
+     */
+    @Query("DELETE FROM cats")
+    suspend fun  deleteAll() {
+
+    }
 }

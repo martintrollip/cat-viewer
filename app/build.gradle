@@ -53,12 +53,25 @@ android {
 }
 
 dependencies {
-    //TODO sort all of these
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
+    implementation "androidx.lifecycle:lifecycle-extensions:$archLifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$archLifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$archLifecycleVersion"
     implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
     implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
-    implementation "com.jakewharton.timber:timber:$timberVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
     implementation "androidx.room:room-runtime:$roomVersion"
+    implementation "androidx.room:room-runtime:$roomVersion"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$coroutinesAdapterVersion"
+    implementation "com.jakewharton.timber:timber:$timberVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3Version"
+    implementation "com.squareup.okhttp3:okhttp:$okhttp3Version"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit2Version"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit2Version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+    kapt "androidx.lifecycle:lifecycle-compiler:$archLifecycleVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+    implementation 'org.conscrypt:conscrypt-android:2.2.1'
 
     //test - Local unit tests
     testImplementation "androidx.test.ext:junit:$androidXTestExtKotlinRunnerVersion"

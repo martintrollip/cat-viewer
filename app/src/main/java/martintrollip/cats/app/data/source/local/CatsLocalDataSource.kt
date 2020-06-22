@@ -1,24 +1,11 @@
-/*
- * Copyright (C) 2019 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package martintrollip.cats.app.data.source.local
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.map
 import martintrollip.cats.app.data.source.CatsDataSource
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import martintrollip.cats.app.data.model.Cat
 import martintrollip.cats.app.data.Result
 
@@ -31,18 +18,43 @@ class CatsLocalDataSource internal constructor(
 ) : CatsDataSource {
 
     override fun observeCats(): LiveData<Result<List<Cat>>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return catsDao.observeCats().map {
+            Result.Success(it)
+        }
     }
 
-    override suspend fun getCats(): Result<List<Cat>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun observeCat(catId: String): LiveData<Result<Cat>> {
+        return catsDao.observeCat(catId).map {
+            Result.Success(it)
+        }
     }
 
-    override suspend fun refreshCats() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override suspend fun getCats(): Result<List<Cat>> = withContext(ioDispatcher) {
+        return@withContext try {
+            Result.Success(catsDao.getCats())
+        } catch (e: Exception) {
+            Result.Error(e)
+        }
     }
 
-    override suspend fun deleteAllCats() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override suspend fun getCat(catId: String): Result<Cat> = withContext(ioDispatcher) {
+        try {
+            val task = catsDao.getCat(catId)
+            if (task != null) {
+                return@withContext Result.Success(task)
+            } else {
+                return@withContext Result.Error(Exception("Task not found!"))
+            }
+        } catch (e: Exception) {
+            return@withContext Result.Error(e)
+        }
+    }
+
+    override suspend fun save(cat: Cat) = withContext(ioDispatcher) {
+        catsDao.insertCat(cat)
+    }
+
+    override suspend fun deleteAllCats() = withContext(ioDispatcher) {
+        catsDao.deleteAll()
     }
 }

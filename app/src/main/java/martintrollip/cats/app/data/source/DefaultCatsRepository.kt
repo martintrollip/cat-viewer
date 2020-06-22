@@ -1,23 +1,6 @@
-/*
- * Copyright (C) 2019 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package martintrollip.cats.app.data.source
 
 import androidx.lifecycle.LiveData
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
 import martintrollip.cats.app.data.Result
 import martintrollip.cats.app.data.model.Cat
 
@@ -26,35 +9,49 @@ import martintrollip.cats.app.data.model.Cat
  */
 class DefaultCatsRepository(
         private val catsRemoteDataSource: CatsDataSource,
-        private val catsLocalDataSource: CatsDataSource,
-        private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO) : CatsRepository {
+        private val catsLocalDataSource: CatsDataSource) : CatsRepository {
 
     override suspend fun getCats(forceUpdate: Boolean): Result<List<Cat>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        if (forceUpdate) {
+            try {
+                getCatsFromRemoteDataSource()
+            } catch (ex: Exception) {
+                return Result.Error(ex)
+            }
+        }
+        return catsLocalDataSource.getCats()
+    }
+
+    private suspend fun getCatsFromRemoteDataSource() {
+        val remoteCats = catsRemoteDataSource.getCats()
+
+        if (remoteCats is Result.Success) {
+            catsLocalDataSource.deleteAllCats()
+            remoteCats.data.forEach { cat ->
+                catsLocalDataSource.save(cat)
+            }
+        } else if (remoteCats is Result.Error) {
+            throw remoteCats.exception
+        }
     }
 
     override suspend fun refreshCats() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        getCatsFromRemoteDataSource()
     }
 
     override fun observeCats(): LiveData<Result<List<Cat>>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override suspend fun refreshCat(catId: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return catsLocalDataSource.observeCats()
     }
 
     override fun observeCat(catId: String): LiveData<Result<Cat>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return catsLocalDataSource.observeCat(catId)
     }
 
     override suspend fun getCat(catId: String, forceUpdate: Boolean): Result<Cat> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return catsLocalDataSource.getCat(catId)
     }
 
     override suspend fun saveCat(cat: Cat) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return catsLocalDataSource.save(cat)
     }
-
 }

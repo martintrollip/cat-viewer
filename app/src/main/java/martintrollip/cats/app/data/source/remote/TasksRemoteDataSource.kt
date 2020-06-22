@@ -16,23 +16,45 @@
 package martintrollip.cats.app.data.source.remote
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.map
 import martintrollip.cats.app.data.Result
 import martintrollip.cats.app.data.model.Cat
 import martintrollip.cats.app.data.source.CatsDataSource
+import timber.log.Timber
+import java.lang.Exception
 
 /**
  * Implementation of the data source that adds a latency simulating network.
  */
 object CatsRemoteDataSource : CatsDataSource {
+
     override fun observeCats(): LiveData<Result<List<Cat>>> {
+        TODO("not implemented")
+    }
+
+    override fun observeCat(catId: String): LiveData<Result<Cat>> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override suspend fun getCat(catId: String): Result<Cat> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override suspend fun getCats(): Result<List<Cat>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        try {
+            val response = CatsApiService.catsApi.getImages().await()
+            Timber.d(response.body().toString())
+            if (response.isSuccessful) {
+                return Result.Success(response.body()!!)
+            }
+        } catch (ex: Exception) {
+            return Result.Error(ex)
+        }
+        return Result.Success(ArrayList())
     }
 
-    override suspend fun refreshCats() {
+    override suspend fun save(cat: Cat) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
