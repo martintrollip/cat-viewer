@@ -21,5 +21,5 @@ data class Cat @JvmOverloads constructor(
         @ColumnInfo(name = "url") var url: String = ""
 ) {
     val titleForList: String
-        get() = id
+        get() = title
 }
