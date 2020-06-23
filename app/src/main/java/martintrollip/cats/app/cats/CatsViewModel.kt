@@ -5,6 +5,7 @@ import kotlinx.coroutines.launch
 import martintrollip.cats.app.data.Result
 import martintrollip.cats.app.data.model.Cat
 import martintrollip.cats.app.data.source.CatsRepository
+import martintrollip.cats.app.utils.Event
 
 /**
  * ViewModel for the cats list screen.
@@ -49,6 +50,16 @@ class CatsViewModel(private val catsRepository: CatsRepository) : ViewModel() {
      */
     fun loadCats(forceUpdate: Boolean) {
         _forceUpdate.value = forceUpdate
+    }
+
+    private val _catDetailsEvent = MutableLiveData<Event<String>>()
+    val catDetailsEvent: LiveData<Event<String>> = _catDetailsEvent
+
+    /**
+     * Cat details event
+     */
+    fun catDetails(catId: String) {
+        _catDetailsEvent.value = Event(catId)
     }
 
 }

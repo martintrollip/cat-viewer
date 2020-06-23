@@ -9,6 +9,7 @@
     <string name="menu_about">About Cat Viewer</string>
     <string name="menu_cats_content_description">Cat image</string>
     <string name="menu_cats_list">Cats list</string>
+    <string name="meow">meow</string>
     <string name="network_continue_offline">Continue offline</string>
     <string name="network_error_message">Please double check your Internet connectivity settings.</string>
     <string name="network_error_title">No network</string>

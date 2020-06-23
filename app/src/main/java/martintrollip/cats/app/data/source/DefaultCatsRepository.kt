@@ -39,6 +39,10 @@ class DefaultCatsRepository(
         getCatsFromRemoteDataSource()
     }
 
+    override suspend fun refreshCat(catId: String) {
+        catsLocalDataSource.getCat(catId)
+    }
+
     override fun observeCats(): LiveData<Result<List<Cat>>> {
         return catsLocalDataSource.observeCats()
     }

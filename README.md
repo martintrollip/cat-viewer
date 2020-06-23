@@ -23,3 +23,7 @@ Based on the android best practices architecture
 //TODO https://developer.android.com/jetpack/docs/guide Repository pattern
 
 //TODO picasso indicators
+
+//TODO mention navigation etc
+
+//TODO check all imports

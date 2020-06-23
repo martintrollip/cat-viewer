@@ -14,6 +14,8 @@ interface CatsRepository {
 
     suspend fun refreshCats()
 
+    suspend fun refreshCat(catId: String)
+
     /**
      * Relies on [getCats] to fetch data and picks the cat with the same ID.
      */

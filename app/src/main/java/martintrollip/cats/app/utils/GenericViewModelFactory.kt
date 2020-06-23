@@ -20,6 +20,7 @@ import androidx.lifecycle.ViewModelProvider
 import martintrollip.cats.app.about.AboutViewModel
 import martintrollip.cats.app.cats.CatsViewModel
 import martintrollip.cats.app.data.source.CatsRepository
+import martintrollip.cats.app.details.DetailViewModel
 
 /**
  * Factory for all ViewModels.
@@ -36,6 +37,8 @@ class ViewModelFactory constructor(
                         CatsViewModel(catsRepository)
                     isAssignableFrom(AboutViewModel::class.java) ->
                         AboutViewModel()
+                    isAssignableFrom(DetailViewModel::class.java) ->
+                        DetailViewModel(catsRepository)
                     else ->
                         throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
                 }

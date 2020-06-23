@@ -10,25 +10,27 @@
         android:name="martintrollip.cats.app.cats.CatListFragment"
         android:label="@string/app_name">
         <action
+            android:id="@+id/action_catsFragment_to_catDetailsFragment"
+            app:destination="@id/detail_fragment_dest" />
+        <action
             android:id="@+id/action_catsFragment_to_aboutFragment"
             app:destination="@id/about_fragment_dest" />
-        <argument
-            android:name="userMessage"
-            android:defaultValue="0"
-            app:argType="integer" />
     </fragment>
 
     <fragment
         android:id="@+id/about_fragment_dest"
         android:name="martintrollip.cats.app.about.AboutFragment"
         android:label="@string/creator_title">
-        <action
-            android:id="@+id/action_aboutFragment_to_catListFragment"
-            app:destination="@id/cat_list_fragment_dest" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detail_fragment_dest"
+        android:name="martintrollip.cats.app.details.DetailFragment"
+        android:label="@string/app_name">
         <argument
-            android:name="userMessage"
-            android:defaultValue="0"
-            app:argType="integer" />
+            android:name="catId"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
 
     <argument

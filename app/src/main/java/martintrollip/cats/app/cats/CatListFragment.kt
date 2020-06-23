@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import martintrollip.cats.app.databinding.FragmentCatsBinding
+import martintrollip.cats.app.utils.EventObserver
 import martintrollip.cats.app.utils.getViewModelFactory
 import timber.log.Timber
 
@@ -39,6 +41,7 @@ class CatListFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewDataBinding.lifecycleOwner = this.viewLifecycleOwner
         setupListAdapter()
+        setupClicks()
     }
 
     private fun setupListAdapter() {
@@ -49,5 +52,16 @@ class CatListFragment : Fragment() {
         } else {
             Timber.w("ViewModel not initialized when attempting to set up adapter.")
         }
+    }
+
+    private fun setupClicks() {
+        viewModel.catDetailsEvent.observe(viewLifecycleOwner, EventObserver {
+            launchCatDetails(it)
+        })
+    }
+
+    private fun launchCatDetails(catId: String) {
+        val action = CatListFragmentDirections.actionCatsFragmentToCatDetailsFragment(catId)
+        findNavController().navigate(action)
     }
 }
