@@ -17,7 +17,7 @@
 <resources>
     <color name="colorPrimary">#FFA000</color>
     <color name="colorPrimaryDark">#C43E00</color>
-    <color name="colorAccent">#FFD149</color>
+    <color name="colorAccent">#FFA000</color>
     <color name="colorTextPrimary">#000000</color>
     <color name="colorGrey">#757575</color>
 </resources>

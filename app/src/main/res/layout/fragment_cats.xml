@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+
+        <variable
+            name="viewmodel"
+            type="martintrollip.cats.app.cats.CatsViewModel" />
+
+    </data>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:layout_width="@dimen/header_image_width"
+            android:layout_height="@dimen/header_image_width"
+            android:layout_gravity="center"
+            android:visibility="@{viewmodel.dataLoading ? View.VISIBLE : View.GONE}"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cats_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:itemCount="7"
+            tools:listitem="@layout/cat_item"
+            app:items="@{viewmodel.items}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
+

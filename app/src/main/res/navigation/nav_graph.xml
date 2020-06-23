@@ -1,26 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ Copyright (C) 2019 The Android Open Source Project
-  ~
-  ~ Licensed under the Apache License, Version 2.0 (the "License");
-  ~ you may not use this file except in compliance with the License.
-  ~ You may obtain a copy of the License at
-  ~
-  ~      http://www.apache.org/licenses/LICENSE-2.0
-  ~
-  ~ Unless required by applicable law or agreed to in writing, software
-  ~ distributed under the License is distributed on an "AS IS" BASIS,
-  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  ~ See the License for the specific language governing permissions and
-  ~ limitations under the License.
-  -->
 
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/tasks_fragment_dest">
+    app:startDestination="@id/cat_list_fragment_dest">
 
-   <!--TODO implement nav graph? and menu?-->
+    <fragment
+        android:id="@+id/cat_list_fragment_dest"
+        android:name="martintrollip.cats.app.cats.CatListFragment"
+        android:label="@string/app_name">
+        <action
+            android:id="@+id/action_catsFragment_to_catDetailsFragment"
+            app:destination="@id/detail_fragment_dest" />
+        <action
+            android:id="@+id/action_catsFragment_to_aboutFragment"
+            app:destination="@id/about_fragment_dest" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/about_fragment_dest"
+        android:name="martintrollip.cats.app.about.AboutFragment"
+        android:label="@string/creator_title">
+    </fragment>
+
+    <fragment
+        android:id="@+id/detail_fragment_dest"
+        android:name="martintrollip.cats.app.details.DetailFragment"
+        android:label="@string/app_name">
+        <argument
+            android:name="catId"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
     <argument
         android:name="userMessage"
         android:defaultValue="0" />
