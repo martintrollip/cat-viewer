@@ -49,3 +49,7 @@ A simple about page.
 ## APIs
 
 Data retrieved from [the cat api](https://thecatapi.com/).
+
+## Icon
+
+Icons made by [Freepik](https://www.flaticon.com/authors/freepik) from [Flaticon](https://www.flaticon.com/)
