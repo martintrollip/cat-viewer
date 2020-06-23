@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Cat Viewer</string>
+    <string name="creator">Created by Martin Trollip</string>
+    <string name="creator_icon_reference">Icons made by Freepik from www.flaticon.com</string>
+    <string name="creator_subtext">Based on Android best practices and repository architecture</string>
+    <string name="creator_title">About Cat Viewer</string>
+    <string name="creator_year">2020</string>
+    <string name="menu_about">About Cat Viewer</string>
     <string name="menu_cats_content_description">Cat image</string>
     <string name="menu_cats_list">Cats list</string>
-    <string name="menu_about">About Cat Viewer</string>
-    <string name="creator">Created by Martin Trollip</string>
-    <string name="creator_subtext">Based on Android best practices and repository architecture</string>
-    <string name="creator_year">2020</string>
-    <string name="creator_icon_reference">Icons made by Freepik from www.flaticon.com</string>
-    <string name="creator_title">About Cat Viewer</string>
+    <string name="network_continue_offline">Continue offline</string>
+    <string name="network_error_message">Please double check your Internet connectivity settings.</string>
     <string name="network_error_title">No network</string>
-    <string name="network_error_message">Please double check your Internet connectivity settings</string>
-    <string name="ok">OK</string>
+    <string name="network_settings">Settings</string>
 </resources>

@@ -8,7 +8,6 @@ import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.os.Bundle
 import android.provider.Settings
-import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
@@ -45,8 +44,13 @@ class CatsActivity : AppCompatActivity() {
             alertDialog.setTitle(R.string.network_error_title)
             alertDialog.setMessage(getString(R.string.network_error_message))
             alertDialog.setIcon(R.drawable.ic_cat)
-            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, getString(R.string.ok), { dialog, onOk -> launchConnectivitySettings() })
-
+            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, getString(R.string.network_settings)) { dialog, onOk ->
+                launchConnectivitySettings()
+                dialog.dismiss()
+            }
+            alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE, getString(R.string.network_continue_offline)) { dialog, onCancel ->
+                dialog.dismiss()
+            }
             alertDialog.show()
         }
     }
@@ -81,7 +85,8 @@ class CatsActivity : AppCompatActivity() {
         return networkInfo?.isConnected ?: false
     }
 
-    @SuppressLint("NewApi") /*because we check if the new intent can be launch otherwise fall back to default*/
+    @SuppressLint("NewApi")
+    /*because we check if the new intent can be launch otherwise fall back to default*/
     private fun launchConnectivitySettings() {
         var intent = Intent(Settings.ACTION_DATA_USAGE_SETTINGS)
 
