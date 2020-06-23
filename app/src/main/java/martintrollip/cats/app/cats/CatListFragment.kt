@@ -31,6 +31,7 @@ class CatListFragment : Fragment() {
             viewmodel = viewModel
         }
         setHasOptionsMenu(true)
+        viewModel.loadCats(true)
         return viewDataBinding.root
     }
 
@@ -38,7 +39,6 @@ class CatListFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewDataBinding.lifecycleOwner = this.viewLifecycleOwner
         setupListAdapter()
-        viewModel.loadCats(true)
     }
 
     private fun setupListAdapter() {

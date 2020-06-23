@@ -25,6 +25,7 @@
             android:layout_width="@dimen/header_image_width"
             android:layout_height="@dimen/header_image_width"
             android:layout_margin="@dimen/activity_horizontal_margin"
+            android:contentDescription="@string/menu_cats_content_description"
             android:src="@drawable/ic_cat" />
 
         <TextView
@@ -38,10 +39,13 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/creator_subtext" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/creator_year" />
+            android:autoLink="web"
+            android:text="@string/creator_icon_reference" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

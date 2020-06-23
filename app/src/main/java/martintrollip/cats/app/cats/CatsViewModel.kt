@@ -2,9 +2,9 @@ package martintrollip.cats.app.cats
 
 import androidx.lifecycle.*
 import kotlinx.coroutines.launch
+import martintrollip.cats.app.data.Result
 import martintrollip.cats.app.data.model.Cat
 import martintrollip.cats.app.data.source.CatsRepository
-import martintrollip.cats.app.data.Result
 
 /**
  * ViewModel for the cats list screen.

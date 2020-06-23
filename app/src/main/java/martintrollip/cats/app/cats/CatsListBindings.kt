@@ -19,7 +19,7 @@ fun setItems(listView: RecyclerView, items: List<Cat>?) {
 
 @BindingAdapter("bind:imageUrl")
 fun loadImage(view: ImageView, imageUrl: String?) {
-    Picasso.with(view.getContext())
+    Picasso.with(view.context)
             .load(imageUrl)
             .placeholder(R.drawable.ic_cat)
             .into(view)

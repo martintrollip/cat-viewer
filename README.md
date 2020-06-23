@@ -21,3 +21,5 @@ Based on the android best practices architecture
 //https://api.thecatapi.com/api/images/get?id=b8
 
 //TODO https://developer.android.com/jetpack/docs/guide Repository pattern
+
+//TODO picasso indicators

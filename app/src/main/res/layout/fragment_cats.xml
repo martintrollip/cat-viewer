@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -30,6 +31,8 @@
             android:id="@+id/cats_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            tools:itemCount="7"
+            tools:listitem="@layout/cat_item"
             app:items="@{viewmodel.items}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
