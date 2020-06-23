@@ -8,7 +8,7 @@ import martintrollip.cats.app.R
 import martintrollip.cats.app.data.model.Cat
 
 /**
- * [BindingAdapter]s for the [Cat]s list.
+ * [BindingAdapter]s for the [Cat]s list.  Instructs the view how to bind certain fields.
  */
 @BindingAdapter("app:items")
 fun setItems(listView: RecyclerView, items: List<Cat>?) {

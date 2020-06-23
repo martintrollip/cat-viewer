@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import java.util.UUID
 
 /**
- * Immutable Room model class for a Cat.
+ * Immutable model for a Cat.
  *
  * @param id          id of the cat, random UUID by default
  * @param title       A random title (Eg, “Image 1”, “Image 2”, “Image 3” etc)

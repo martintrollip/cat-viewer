@@ -18,7 +18,7 @@ package martintrollip.cats.app.utils
 import androidx.lifecycle.Observer
 
 /**
- * From ASOP
+ * Borrowed from AOSP
  *
  * Used as a wrapper for data that is exposed via a LiveData that represents an event.
  */

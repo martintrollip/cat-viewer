@@ -12,7 +12,7 @@ import martintrollip.cats.app.data.source.local.CatsLocalDataSource
 import martintrollip.cats.app.data.source.remote.CatsRemoteDataSource
 
 /**
- * A Service locator to simplify the small app.  A Dependency Injection framework can be implemented instead of this. TODO
+ * A Service locator to simplify the small app.  A Dependency Injection framework can be implemented instead of this.
  */
 object ServiceLocator {
 

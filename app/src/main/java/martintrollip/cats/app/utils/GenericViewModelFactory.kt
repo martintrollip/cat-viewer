@@ -23,7 +23,7 @@ import martintrollip.cats.app.data.source.CatsRepository
 import martintrollip.cats.app.details.DetailViewModel
 
 /**
- * Factory for all ViewModels.
+ * Factory for all ViewModels.  Borrowed for AOSP
  */
 @Suppress("UNCHECKED_CAST")
 class ViewModelFactory constructor(

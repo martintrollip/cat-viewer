@@ -60,7 +60,7 @@ interface CatsDao {
      * Delete all tasks.
      */
     @Query("DELETE FROM cats")
-    suspend fun  deleteAll() {
+    suspend fun deleteAll() {
 
     }
 }

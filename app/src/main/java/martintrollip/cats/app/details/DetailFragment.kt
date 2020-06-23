@@ -22,9 +22,8 @@ import martintrollip.cats.app.databinding.FragmentDetailBinding
 import martintrollip.cats.app.utils.EventObserver
 import martintrollip.cats.app.utils.getViewModelFactory
 
-
 /**
- * Display an about page
+ * Display a Cat detail page
  */
 class DetailFragment : Fragment() {
     private lateinit var viewDataBinding: FragmentDetailBinding

@@ -31,7 +31,7 @@ class DefaultCatsRepository(
                 catsLocalDataSource.save(cat)
             }
         } else if (remoteCats is Result.Error) {
-//            throw remoteCats.exception
+            //Ignore failed case
         }
     }
 

@@ -6,13 +6,16 @@ import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
+/**
+ * [the cat api](https://thecatapi.com/)
+ */
 interface CatsApi {
 
     @GET("get")
     fun getImages(@Query("format") format: String = "json",
-                             @Query("results_per_page") results_per_page: Int = 100,
-                             @Query("size") size: String = "small",
-                             @Query("type") type: String = "png",
-                             @Query("page") page: Int = 1
+                  @Query("results_per_page") results_per_page: Int = 100,
+                  @Query("size") size: String = "small",
+                  @Query("type") type: String = "png",
+                  @Query("page") page: Int = 1
     ): Deferred<Response<List<Cat>>>
 }

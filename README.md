@@ -1,29 +1,51 @@
+<div align="center"><img src="docs/cat.png"/></div>
+
 # cat-viewer
 
+## Architecture
 
-Based on the android best practices architecture
+This application displays a list of cats and some information about them.  This implementation is based on the [repository pattern](https://developer.android.com/jetpack/docs/guide) and Android best practices.  The repository pattern is visually represented below
 
-//TODO check all authors
+<div align="center"><img src="docs/repository.png"/></div>
 
-//TODO formatting
+This is a single Activity application with fragments.  Each fragment is controlled by a ViewModel with Live data.  The data repository provides the front end with data which is cached locally (in a Room database) after being retrieved form a remote source using Retrofit and Coroutines.  The data is presented to the View using LiveData.  This enables the app to be used in offline mode after the initial data has been downloaded.
 
-//TODO look for all of the other TODOs
+The app makes use of the JetPack Navigation controller to easily control the flow and the data passed between screens.
 
-//TODO apply a version
+The images are downloaded and automatically cached using Picasso.
 
-//TODO check license
+## Features
 
-//TODO optimise imports
+The main features of the app includes a list of cats, details of the cats as well as an about screen.  These features will be available in offline mode if it was cached previously.
 
-//TODO https://thecatapi.com/
+### List of cats
+List of random cat images from the API.
 
-//https://api.thecatapi.com/api/images/get?format=json&results_per_page=100&size=small&type=png&page=5
-//https://api.thecatapi.com/api/images/get?id=b8
+<div align="center"><img src="docs/list.png"/></div>
 
-//TODO https://developer.android.com/jetpack/docs/guide Repository pattern
+### Cat details
+The details of the cats.  Also includes a little *meow* sound
 
-//TODO picasso indicators
+<div align="center"><img src="docs/details.jpg"/></div>
 
-//TODO mention navigation etc
+### Navigation
 
-//TODO check all imports
+This app makes use of [Jetpack Navigation](https://developer.android.com/guide/navigation)
+
+<div align="center"><img src="docs/menu.jpg"/></div>
+
+### Offline mode
+
+When offline, the user will still be able to access all of the data cached previously in the local Room database and with Picasso.
+
+<div align="center"><img src="docs/offline.jpg"/></div>
+
+### About
+
+A simple about page.
+
+<div align="center"><img src="docs/about.jpg"/></div>
+
+## APIs
+
+Data retrieved from [the cat api](https://thecatapi.com/).

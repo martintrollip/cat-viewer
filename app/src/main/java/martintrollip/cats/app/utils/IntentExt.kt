@@ -4,8 +4,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 
 /**
- * @author Martin Trollip
- * @since 2020/06/23 17:32
+ * Extension functions for Intents
  */
 fun Intent.canLaunch(packageManager: PackageManager): Boolean {
     return resolveActivity(packageManager) != null

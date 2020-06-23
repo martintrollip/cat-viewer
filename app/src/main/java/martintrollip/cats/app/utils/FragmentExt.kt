@@ -1,9 +1,8 @@
 package martintrollip.cats.app.utils
 
 /**
- * Extension functions for Fragment.
+ * Extension functions for Fragments
  */
-
 import androidx.fragment.app.Fragment
 import martintrollip.cats.app.CatsApplication
 

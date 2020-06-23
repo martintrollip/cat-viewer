@@ -9,7 +9,7 @@ import martintrollip.cats.app.data.model.Cat
 import martintrollip.cats.app.databinding.CatItemBinding
 
 /**
- * Adapter for the task list. Has a reference to the [CatsViewModel] to send actions back to it.
+ * Adapter for the cats list. Has a reference to the [CatsViewModel] to send actions back to it.
  */
 class CatsAdapter(private val viewModel: CatsViewModel) :
         ListAdapter<Cat, CatsAdapter.ViewHolder>(CatDiffCallback()) {
