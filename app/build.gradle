@@ -80,12 +80,23 @@ dependencies {
     kapt "androidx.room:room-compiler:$roomVersion"
 
     //test - Local unit tests
+    testImplementation "androidx.arch.core:core-testing:$archTestingVersion"
     testImplementation "androidx.test.ext:junit:$androidXTestExtKotlinRunnerVersion"
     testImplementation "androidx.test:core-ktx:$androidXTestCoreVersion"
     testImplementation "junit:junit:$junitVersion"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+    testImplementation "org.robolectric:robolectric:$robolectricVersion"
 
     //androidTest - Instrumented testing
+    androidTestImplementation "androidx.arch.core:core-testing:$archTestingVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion" //More advance view tests
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    androidTestImplementation "androidx.test.ext:junit:$androidXTestExtKotlinRunnerVersion"
+    androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:$dexMakerVersion" //This is to allow the usage of mockito in an android project, mockito need to generate classes at runtime (dex byte code)
     androidTestImplementation "junit:junit:$junitVersion"
     androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+    androidTestImplementation "org.mockito:mockito-core:$mockitoVersion"
+    debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"// Testing code should not be included in the main code. // Once https://issuetracker.google.com/128612536 is fixed this can be fixed.
+    implementation "androidx.test.espresso:espresso-idling-resource:$espressoVersion"
+    implementation "androidx.test:core:$androidXTestCoreVersion"
 }

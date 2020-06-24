@@ -56,9 +56,6 @@ object ServiceLocator {
     @VisibleForTesting
     fun resetRepository() {
         synchronized(lock) {
-            runBlocking {
-                CatsRemoteDataSource.deleteAllCats()
-            }
             // Clear all data to avoid test pollution.
             database?.apply {
                 clearAllTables()

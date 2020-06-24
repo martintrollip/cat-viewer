@@ -3,7 +3,7 @@
     <string name="app_name">Cat Viewer</string>
     <string name="creator">Created by Martin Trollip</string>
     <string name="creator_icon_reference">Icons made by Freepik from www.flaticon.com</string>
-    <string name="creator_subtext">Based on Android best practices and repository architecture</string>
+    <string name="creator_subtext">Based on Android best practices blueprint and the repository architecture</string>
     <string name="creator_title">About Cat Viewer</string>
     <string name="creator_year">2020</string>
     <string name="menu_about">About Cat Viewer</string>

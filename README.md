@@ -53,3 +53,8 @@ Data retrieved from [the cat api](https://thecatapi.com/).
 ## Icon
 
 Icons made by [Freepik](https://www.flaticon.com/authors/freepik) from [Flaticon](https://www.flaticon.com/)
+
+# Future work
+
+1. Improve test coverage,  including end to end tests
+2. Support 2 fragments in one view for landscape mode
